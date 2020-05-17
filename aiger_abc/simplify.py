@@ -5,6 +5,9 @@ from subprocess import PIPE, call
 import aiger
 
 
+SIMPLIFY_TEMPLATE = 'read {0}; dc2; dc2; dc2; rewrite; write_aiger -s {0}'
+
+
 def simplify(circ, verbose=False, abc_cmd='abc', aigtoaig_cmd='aigtoaig'):
     circ = aiger.to_aig(circ)
 
@@ -19,7 +22,7 @@ def simplify(circ, verbose=False, abc_cmd='abc', aigtoaig_cmd='aigtoaig'):
         command = [
             abc_cmd,
             '-c',
-            f'read {aig_path}; dc2; dc2; dc2; rewrite; write_aiger -s {aig_path}'
+            SIMPLIFY_TEMPLATE.format(aig_path)
         ]
         call(command) if verbose else call(command, stdout=PIPE)
         call([aigtoaig_cmd, aig_path, aag_path])

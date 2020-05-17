@@ -12,7 +12,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-py-aiger = "^3.5"
+py-aiger = "^6.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest-cov = "^2.7"
