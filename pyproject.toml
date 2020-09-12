@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "py-aiger-abc"
 readme="README.md"
-version = "0.2.0"
+version = "0.2.1"
 description = "Bridge to using Berkeley-ABC with py-aiger."
 repository = "https://github.com/mvcisback/py-aiger-abc"
 authors = ["Marcell Vazquez-Chanlatte <mvc@linux.com>"]
